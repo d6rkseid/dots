@@ -1,0 +1,356 @@
+# -- Modkey --------------------------------------------------------------------
+
+    set $alt Mod1
+    set $menu Menu
+    set $mod Mod4
+    set $ctrl Control
+    set $scripts ~/.scripts
+    set $nsi --no-startup-id
+    set $r --release
+
+# -- Autostart Programs --------------------------------------------------------
+
+    exec $nsi anamnesis --start
+    exec $nsi thunar --daemon
+    exec $nsi $scripts/batwarn.sh
+    exec $nsi $scripts/batnotify.sh
+    exec $nsi $scripts/rm_fbk_psh.sh
+    exec $nsi $scripts/rm_spotify_ad.sh
+    exec $nsi $scripts/KeyboardDelayRate.sh
+    exec $nsi dunst -config ~/.config/dunst/dunstrc
+    exec $nsi $scripts/default_wallpaper.sh
+    exec $nsi $scripts/wallpaper_changer_all.sh
+#   exec $nsi $scripts/wallpaper_changer_dir.sh
+    exec $nsi blueman-applet
+    exec $nsi compton
+    exec $nsi kdeconnect-cli --refresh
+#   exec $nsi megasync
+    exec $nsi nm-applet
+    exec $nsi numlockx on
+    exec $nsi $scripts/arandr.sh
+    exec $nsi $scripts/synclient.sh
+#   exec $nsi $scripts/xautolock.sh
+
+# -- Programs Keybindings ------------------------------------------------------
+
+#   Launch Programs
+    bindsym $alt+r exec $nsi redshift-gtk
+    bindsym $alt+a exec $nsi atom
+    bindsym $alt+b exec $nsi blockify
+    bindstm $alt+c exec $nsi chromium
+    bindsym $alt+f exec $nsi firefox
+    bindsym $alt+g exec $nsi gwenview --fullscreen
+    bindsym $alt+k exec $nsi kodi
+    bindsym $alt+n exec $nsi gedit
+    bindsym $alt+o exec $nsi libreoffice --writer
+#   bindsym $alt+p exec $nsi pcmanfm
+    bindsym $alt+t exec $nsi thunar
+    bindsym $alt+s exec $nsi spotify
+    bindsym $alt+v exec $nsi pavucontrol
+    bindsym $alt+w exec $nsi whatsie
+    bindsym $Mod+Return exec $nsi termite
+    bindsym $Mod+Tab exec $nsi rofi-gotowindow
+    bindsym $Mod+Shift+Return exec $nsi xterm
+    bindsym $Mod+Shift+s exec $nsi gnome-system-monitor
+    bindsym $alt+grave exec $nsi tilda
+
+#   Launch Terminal Programs
+    bindsym $alt+Shift+x exec $nsi xfce4-appfinder --collapsed
+    bindsym $alt+Shift+y exec termite -e 'yaourt -Syyua --noconfirm && i3-msg restart'
+    bindsym $alt+Shift+h exec termite -e 'htop'
+    bindsym $alt+Shift+n exec termite -e 'notes'
+    bindsym $alt+Shift+q exec termite -e 'qalc'
+    bindsym $alt+Shift+r exec termite -e 'ranger'
+    bindsym $alt+Shift+t exec termite -e 'translate-shell'
+    bindsym $alt+Shift+w exec termite -e 'watch -t netinfo'
+#   bindsym $menu exec termite --title Menu --class info --geometry=678x766 -e 'ponymenu'
+    bindsym $menu exec rofi-trans
+
+#   Screen Control
+    bindsym Print exec wscrot
+    bindsym $mod+Print exec dscrot
+    bindsym $mod+Control+Print exec shutter -s
+    bindsym $mod+Escape exec i3lock-fancy
+    bindsym $mod+Control+r exec redshift
+    bindsym $mod+F11 exec screen_dim
+    bindsym $mod+F12 exec screen_black
+    bindsym $mod+w exec $scripts/wallpaper_changer_all.sh
+#   bindsym $mod+w exec $scripts/wallpaper_changer_dir.sh
+
+#   ReDragon Keyboard
+    bindsym F1 exec spotify
+    bindsym F2 exec $nsi pactl set-sink-volume 0 -5%  #increase decrease volume
+    bindsym F3 exec $nsi pactl set-sink-volume 0 +5%  #increase sound volume
+    bindsym F4 exec $nsi pactl set-sink-mute 0 toggle # mute sound
+    bindsym F5 exec /usr/local/bin/spotify_remote stop
+    bindsym F6 exec /usr/local/bin/spotify_remote previous
+    bindsym F7 exec /usr/local/bin/spotify_remote play
+    bindsym F8 exec /usr/local/bin/spotify_remote next
+    bindsym F9 exec thunderbird
+    bindsym F10 exec thunar
+    bindsym F11 exec i3lock-blurry
+    bindsym F12 exec termite -e 'qalc'
+    bindsym alt+plus exec xbacklight -inc 25 #increase screen brightness
+    bindsym alt+minus exec xbacklight -dec 25 #decrease screen brightness
+
+#   Search Menu
+    bindsym $alt+space exec rofi-fullscreen
+#   bindsym $mod+d exec rofi-lower-bottom
+#   bindsym $mod+d exec rofi-lower-bottom-small
+#   bindsym $alt+d exec dmenu-upper-small
+#   bindsym $mod+d exec j4-dmenu-upper
+
+
+#   Restart Related Bindings
+    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r restart
+
+#   Spotify Controls
+    bindsym $ctrl+h exec /usr/local/bin/spotify_remote previous
+    bindsym $ctrl+j exec /usr/local/bin/spotify_remote play
+    bindsym $ctrl+k exec /usr/local/bin/spotify_remote pause
+    bindsym $ctrl+l exec /usr/local/bin/spotify_remote next
+
+#   Panel
+#   bindsym alt+p bar mode toggle
+    bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+# -- General Configuration -----------------------------------------------------
+
+#   font pango:FantasqueSansMono-Bold 10
+    floating_modifier $mod
+    new_window none
+
+# -- Colors --------------------------------------------------------------------
+
+    set $base00 #101218
+    set $base01 #191919
+    set $base02 #252936
+    set $base03 #27C8FC
+    set $base04 #C0C5CE
+    set $base05 #d1d4e0
+    set $base06 #C9CCDB
+    set $base07 #ffffff
+    set $base08 #ee829f
+    set $base09 #f99170
+    set $base0A #ffefcc
+    set $base0B #a5ffe1
+    set $base0C #97e0ff
+    set $base0D #97bbf7
+    set $base0E #c0b7f9
+    set $base0F #fcc09e
+
+# -- Window Colors -------------------------------------------------------------
+
+#   class                   border  background text    indicator
+    client.focused          $base01 $base01    $base07 $base0F
+    client.focused_inactive $base02 $base02    $base03 $base0F
+    client.unfocused        $base02 $base02    $base03 $base0F
+    client.urgent           $base02 $base08    $base00 $base0F
+
+# -- Window Related Bindings ---------------------------------------------------
+    bindsym --release $alt+F8 exec rofi-fullscreen
+    bindsym --release $alt+F10 exec arandr
+    bindsym --release $alt+F4 exec xkill
+    bindsym $mod+Shift+q kill
+#   bindsym $mod+h focus left
+#   bindsym $mod+j focus down
+#   bindsym $mod+k focus up
+#   bindsym $mod+l focus right
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+
+#   bindsym $mod+Shift+space floating toggle
+#   bindsym $mod+Shift+f fullscreen global
+    popup_during_fullscreen smart
+
+    bindsym $mod+e fullscreen toggle
+    bindsym $mod+f floating enable, resize set 1366 748, move position center
+    bindsym $mod+c floating enable, resize set 966 606, move position center
+    bindsym $mod+grave layout toggle split
+    bindsym $mod2+Control+w layout tabbed
+    bindsym $mod+space focus mode_toggle
+
+    bindsym $mod+period workspace next
+    bindsym $mod+comma workspace prev
+
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+    bindsym $mod+r mode "  "
+    mode "  " {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Escape mode "default"
+    }
+
+# -- Windows Classes -----------------------------------------------------------
+
+    for_window [class="Firefox"] focus
+    for_window [class="filelight"] floating enable, resize set 685 450, move position center
+    for_window [class="Eog"] floating enable
+    for_window [class="Ristretto"] floating enable, resize set 966 606, move position center
+    for_window [class="mpv"] floating enable, resize set 685 450, move position center
+    for_window [class="Gedit"] floating enable, resize set 685 450, move position center
+    for_window [class="Gnome-system-monitor"] floating enable, resize set 685 450, move position center
+    for_window [class="Atom"] sticky enable
+    for_window [class="Gedit"] sticky enable
+    for_window [class="Pavucontrol"] floating enable, focus, move absolute center
+    for_window [class="XTerm"] sticky enable
+    for_window [class="Xfce4-appfinder"] floating enable, resize set 966 606, move position center
+    for_window [class="Kodi"] fullscreen disable
+    for_window [class="Bleachbit"] floating enable, border normal, focus, move absolute center
+
+
+# -- Programs in Workspaces ----------------------------------------------------
+
+    assign [class="Gnome-terminal|Konsole|termite|XTerm"] $WS1
+    assign [class="Firefox|Tor Browser"] $WS2
+    assign [class="Atom|subl"] $WS3
+    assign [class="Cherrytree|Evince|Foxit Reader|Keepnote|libreoffice-writer|Nautilus|Pcmanfm|Thunar"] $WS4
+    assign [class="gwenview|feh"] $WS5
+    assign [class="Kodi|MPlayer"] $WS6
+    assign [class="Whatsie"] $WS8
+    for_window [class="chromium"] move to workspace  2: 
+    for_window [class="Spotify"] move to workspace 7: 
+    for_window [class="Gimp|GParted|Tixati|Thunderbird"] move to workspace 10: 
+
+# -- Workspaces ----------------------------------------------------------------
+
+    set $WS1 "1: "
+    set $WS2 "2: "
+    set $WS3 "3: "
+    set $WS4 "4: "
+    set $WS5 "5: "
+    set $WS6 "6: "
+    set $WS7 "7: "
+    set $WS8 "8: "
+    set $WS9 "9: "
+    set $WS10 "10: "
+
+    set $monitor1 "DVI-I-1"
+    set $monitor2 "HDMI-0"
+
+# -- Switch to Workspaces v2 ----------------------------------------------------
+
+    bindsym $mod+1 workspace $WS1
+    bindsym $mod+2 workspace $WS2
+    bindsym $mod+3 workspace $WS3
+    bindsym $mod+4 workspace $WS4
+    bindsym $mod+5 workspace $WS5
+    bindsym $mod+6 workspace $WS6
+    bindsym $mod+7 workspace $WS7
+    bindsym $mod+8 workspace $WS8
+    bindsym $mod+9 workspace $WS9
+    bindsym $mod+0 workspace $WS10
+
+# -- Move Focused Container to Workspaces --------------------------------------
+
+    bindsym $mod+Shift+1 move container to workspace $WS1
+    bindsym $mod+Shift+2 move container to workspace $WS2
+    bindsym $mod+Shift+3 move container to workspace $WS3
+    bindsym $mod+Shift+4 move container to workspace $WS4
+    bindsym $mod+Shift+5 move container to workspace $WS5
+    bindsym $mod+Shift+6 move container to workspace $WS6
+    bindsym $mod+Shift+7 move container to workspace $WS7
+    bindsym $mod+Shift+8 move container to workspace $WS8
+    bindsym $mod+Shift+9 move container to workspace $WS9
+    bindsym $mod+Shift+0 move container to workspace $WS10
+
+# -- Workspace Monitors --------------------------------------------------------
+
+    workspace $WS1 output $monitor1
+    workspace $WS2 output $monitor1
+    workspace $WS3 output $monitor1
+    workspace $WS4 output $monitor1
+    workspace $WS5 output $monitor1
+    workspace $WS6 output $monitor1
+    workspace $WS9 output $monitor1
+    workspace $WS10 output $monitor1
+
+# -- Workspaces Outputs --------------------------------------------------------
+
+    workspace 1 output HDMI-0
+    workspace 2 output DVI-D-0
+    workspace 3 output DVI-I-1
+
+# -- Pulse Audio Controls ------------------------------------------------------
+
+    bindsym XF86AudioRaiseVolume exec $nsi pulseaudio-ctl up 
+    bindsym XF86AudioLowerVolume exec $nsi pulseaudio-ctl down
+    bindsym XF86AudioMute exec $nsi pulseaudio-ctl mute
+
+# -- Sreen Brightness Controls -------------------------------------------------
+
+    bindsym XF86MonBrightnessUp exec xbacklight -inc 25 # increase screen brightness
+    bindsym XF86MonBrightnessDown exec xbacklight -dec 25 # decrease screen brightness
+
+# -- Media Player Controls -----------------------------------------------------
+
+    bindsym XF86AudioPlay exec playerctl play
+    bindsym XF86AudioPause exec playerctl pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+
+# -- Panel Menu Option ---------------------------------------------------------
+
+    set $langmenu "Languages: [F]rench [E]nglish [G]erman [P]ortuguese [S]panish [I]taliano [T]urkish"
+    bindsym $alt+Delete      mode $langmenu
+    mode $langmenu {
+    bindsym f         exec setxkbmap us_qwerty-fr
+    bindsym e         exec setxkbmap us
+    bindsym g         exec setxkbmap de
+    bindsym p         exec setxkbmap pt
+    bindsym s         exec setxkbmap es
+    bindsym i         exec setxkbmap it
+    bindsym t         exec setxkbmap tr
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+    }
+
+    set $sysmenu "system:  [r]eload  [l]ogout loc[k] [s]uspend  [p]oweroff  re[b]oot"
+    bindsym $mod+Delete      mode $sysmenu
+    mode $sysmenu {
+    bindsym r         restart
+    bindsym l         exit
+    bindsym k         exec i3lock-fancy
+    bindsym s         exec systemctl suspend
+    bindsym p         exec shutdown -P now
+    bindsym b         exec shutdown -r now
+    bindsym Return    mode "default"
+
+    bindsym Escape    mode "default"
+    }
+
+# -- Bar -----------------------------------------------------------------------
+
+    bar {
+#   tray_output none
+#   tray_output primary
+#   tray_output HDMI2
+
+    position bottom
+    status_command i3blocks
+#   status_command i3status
+    font pango: FantasqueSansMono-Bold, FontAwesome 11
+
+    colors {
+    separator  $base03
+    background $base01
+    statusline $base05
+#                        border  background text
+    focused_workspace  $base01 $base01    $base07
+    active_workspace   $base01 $base02    $base03
+    inactive_workspace $base01 $base01    $base03
+    urgent_workspace   $base01 $base01    $base08
+        }
+    }
