@@ -1,0 +1,8 @@
+# Prevent Yaourt from asking so many questions that I just answer "yes" to 
+# blindly.
+BUILD_NOCONFIRM=1
+EDITFILES=0
+
+# Disable asking root password multiple times
+# https://wiki.archlinux.org/index.php/Yaourt#Yaourt_asking_for_password_twice
+SUDONOVERIF=1
