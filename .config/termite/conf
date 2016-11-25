@@ -1,0 +1,56 @@
+
+#--General----------------------------------------------------------------------
+[options]
+scrollback_lines = 12000
+scroll_on_keystroke = true
+font             = FantasqueSansMono 18
+clickable_url    = true
+browser          = chromium
+allow_bold       = true
+allow_italic     = true
+visible_bell     = false
+mouse_autohide   = true
+audible_bell     = true
+urgent_on_bell = true
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+#--Color-Scheme-----------------------------------------------------------------
+
+[colors]
+
+# special
+foreground      = #31A9E7
+foreground_bold = #ebf1f1
+cursor          = #3388b4
+background = rgba(63, 63, 63, 0.8)
+
+
+# 16 color space
+color0  = #2b303b
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #8fa1b3
+color5  = #b48ead
+color6  = #60A2D5
+color7  = #c0c5ce
+color8  = #65737e
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #60A2D5
+color12 = #60A2D5
+color13 = #b48ead
+color14 = #C8CB92
+color15 = #eff1f5
+
+# 256 color space
+color16 = #d08770
+color17 = #ab7967
+color18 = #343d46
+color19 = #4f5b66
+color20 = #a7adba
+color21 = #dfe1e8e
