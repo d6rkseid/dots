@@ -1,0 +1,1 @@
+rofi -show window -font "San Francisco System Display Bold 12" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"

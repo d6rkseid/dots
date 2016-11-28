@@ -1,0 +1,1 @@
+cd / ; sudo rsync -ruv /bin /run/media/archy/東芝/Backup/Arch ; sudo rsync -ruv /etc /run/media/archy/東芝/Backup/Arch ; sudo rsync -ruv /home /run/media/archy/東芝/Backup/Arch ; sudo rsync -ruv /opt /run/media/archy/東芝/Backup/Arch ; sudo rsync -ruv /root /run/media/archy/東芝/Backup/Arch ; sudo rsync -ruv /usr /run/media/archy/東芝/Backup/Arch

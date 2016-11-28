@@ -1,0 +1,2 @@
+#!/bin/bash
+rofi -show run -width 1366 -lines 3 -opacity 80

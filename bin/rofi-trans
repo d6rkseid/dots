@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# options rofi
+menu='rofi -width 350 -dmenu -i -p'
+
+de='English to German                     DE'
+DE='German to English                     DE'
+tr='English to Turkish                       TR'
+TR='Turkish to English                       TR'
+fr='English to French                        FR'
+FR='French to English                        FR'
+es='English to Spanish                       ES'
+ES='Spanish to English                       ES'
+sp='Spanish to Portuguese              ES'
+it='English to Italian                          IT'
+IT='Italian to English                           IT'
+pt='English to Portuguese                PT'
+PT='Portuguese to English                PT'
+ps='Portuguese to Spanish               PT'
+ru='English to Russian                       RU'
+RU='Russian to English                       RU'
+zh='English to Chinese                       ZH'
+ZH='Chinese to English                       ZH'
+ja='English to Japanese                      JA'
+JA='Japanese to English                      JA'
+ko='English to Korean                        KO'
+KO='Korean to English                        KO'
+
+# create search menu
+trans=$(echo -e "$de\n$DE\n$tr\n$TR\n$fr\n$FR\n$es\n$ES\n$sp\n$it\n$IT\n$pt\n$PT\n$ps\n$ru\n$RU\n$zh\n$ZH\n$ja\n$JA\n$ko\n$KO"| $menu Translators: )
+
+# exit with no input
+if [[ $? -eq 1 ]]; then
+    exit 1
+fi
+
+# select rofi search provider
+case $trans in
+    $de) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:de -play' ;;
+    $DE) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief de:en -play' ;;
+    $tr) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:tr -play';;
+    $TR) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief tr:en -play';;
+    $fr) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:fr -play' ;;
+    $FR) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief fr:en -play' ;;
+    $it) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:it -play';;
+    $IT) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief it:en -play';;
+    $es) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:es -play' ;;
+    $ES) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief es:en -play' ;;
+    $sp) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief es:pt -play';;
+    $pt) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:pt -play';;
+    $PT) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief pt:en -play';;
+    $ps) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief pt:es -play';;
+    $ru) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:ru -play' ;;
+    $RU) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief ru:en -play' ;;
+    $zh) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:zh -play';;
+    $ZH) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief zh:en -play';;
+    $ja) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:ja -play';;
+    $JA) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief ja:en -play';;
+    $ko) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief en:ko -play';;
+    $KO) termite --title Translator --class info --geometry=678x766 -e 'trans -shell -brief ko:en -play';;
+ esac

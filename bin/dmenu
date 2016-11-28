@@ -1,0 +1,2 @@
+#!/bin/bash
+dmenu_run -nb '#101010' -nf '#A9AFC6' -sb '#303030' -sf '#e0e0e0'

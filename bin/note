@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+ARG=$@
+ARG=${ARG// /_}
+NOTESDIR=/home/chris/notes
+NOTE=$(date +%a%d%m.%k%M%S.txt)
+[ ! -z $ARG ] && NOTE=${NOTE}_$ARG
+
+[ ! -d "$NOTESDIR" ] && mkdir $NOTESDIR
+cd $NOTESDIR
+touch $NOTE
+
+cat << EOD >> $NOTE
+Note $@
+Made on $(date +"%A %d %B %Y, %T")
+-----------------------------------------
+
+-----------------------------------------
+EOD
+
+vim $NOTE +4
+
+echo "Saved in $NOTESDIR/$NOTE"
+
+exit 0

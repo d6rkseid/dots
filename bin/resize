@@ -1,0 +1,2 @@
+!#/bin/bash
+xdotool selectwindow windowsize 966 606

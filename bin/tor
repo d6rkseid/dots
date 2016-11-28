@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sh /opt/tor/Browser/start-tor-browser

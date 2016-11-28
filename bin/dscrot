@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# take scrot of desktop, notify + open
+
+image=~/pics/screenshots/%d-%m-%Y-%T_$wx$h_scrot.png
+
+scrot '%d-%m-%Y-%T_$wx$h_scrot.png' -d 2 -q 100 -e 'mv $f ~/pics/screenshots \
+notify-send "  :: screenshot taken ::" \
+#xdg-open ~/pics/screenshots/%d-%m-%Y-%T_$wx$h_scrot.png'

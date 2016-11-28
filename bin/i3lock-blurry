@@ -1,0 +1,50 @@
+#_____________    ______           ______
+#___(_)_|__  /    ___  /______________  /__
+#__  /___/_ <     __  /_  __ \  ___/_  //_/
+#_  / ____/ /     _  / / /_/ / /__ _  ,<
+#/_/  /____/      /_/  \____/\___/ /_/|_|
+
+#!/bin/bash
+
+# -- Single-Screen ------------------------------------------------------------------
+#!/bin/bash
+#ICON=$HOME/.xlock/icon.png
+#TMPBG=/tmp/screen.png
+#scrot /tmp/screen.png
+#convert $TMPBG -scale 10% -scale 1000% $TMPBG
+#convert $TMPBG $ICON -gravity center -composite -matte $TMPBG
+#i3lock -u -i $TMPBG
+
+# -- Multiple-Screen -----------------------------------------------------------------
+
+scrot /tmp/screen.png
+convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
+
+if [[ -f $HOME/.i3/icons/lock.png ]]
+then
+    # placement x/y
+    PX=0
+    PY=0
+    # lockscreen image info
+    R=$(file ~/.i3/icons/lock.png | grep -o '[0-9]* x [0-9]*')
+    RX=$(echo $R | cut -d' ' -f 1)
+    RY=$(echo $R | cut -d' ' -f 3)
+
+    SR=$(xrandr --query | grep ' connected' | cut -f3 -d' ')
+    for RES in $SR
+    do
+        # monitor position/offset
+        SRX=$(echo $RES | cut -d'x' -f 1)                   # x pos
+        SRY=$(echo $RES | cut -d'x' -f 2 | cut -d'+' -f 1)  # y pos
+        SROX=$(echo $RES | cut -d'x' -f 2 | cut -d'+' -f 2) # x offset
+        SROY=$(echo $RES | cut -d'x' -f 2 | cut -d'+' -f 3) # y offset
+        PX=$(($SROX + $SRX/2 - $RX/2))
+        PY=$(($SROY + $SRY/2 - $RY/2))
+
+        convert /tmp/screen.png $HOME/.i3/icons/lock.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+        echo "done"
+    done
+fi
+# dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+# i3lock  -I 10 -d -e -u -n -i /tmp/screen.png
+i3lock -e -u -n -i /tmp/screen.png

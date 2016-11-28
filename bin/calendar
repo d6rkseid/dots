@@ -1,0 +1,1 @@
+termite --title Calendar --class info --geometry=850x766 -e 'cal -y'

@@ -1,0 +1,10 @@
+#! /bin/bash
+echo 'Pacman backup...' 
+yaourt -Qqem > ~/Dotfiles/aur.txt
+pacman -Qqen > ~/Dotfiles/repos.txt
+cp /etc/pacman.conf ~/Dotfiles/pacman.conf
+cd ~/
+git add .pacman*
+git commit -m 'package updates' > /dev/null
+cd .
+echo 'done' 

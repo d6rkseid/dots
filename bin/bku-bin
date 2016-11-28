@@ -1,0 +1,1 @@
+cd / ; sudo rsync -ruv /bin /run/media/archy/東芝/Backup/Arch 

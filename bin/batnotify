@@ -1,0 +1,18 @@
+#!/bin/bash
+# critical battery notifier
+
+# configuration
+interval=120    #in seconds
+critical_level=15    #percent
+icon="notification-battery-low"   #notification icon
+
+while true
+do
+        if [ "$(acpi -a | grep -o off)" == "off" ]; then
+           battery_level=`acpi -b | sed 's/.*[dg], //g;s/\%,.*//g'`
+           [ $battery_level -le $critical_level ] && \
+            notify-send -u critical -i "$icon" -t 1500 \
+           "  :: battery low $battery_level% ::"
+        fi
+sleep $interval
+done
