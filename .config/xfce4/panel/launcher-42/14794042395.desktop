@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio
+Comment=The official Android IDE
+Icon=/home/archy/.local/icons/Android Studio blu.png
+Exec=android-studio %f
+NoDisplay=false
+Categories=Development;IDE;
+MimeType=application/x-extension-iml;
+StartupWMClass=jetbrains-studio
+StartupNotify=true
+Terminal=false
+Path=
+X-XFCE-Source=file:///home/archy/desk/android-studio.desktop

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chromium
+GenericName=Web Browser
+Comment=Access the Internet
+Icon=/home/archy/.local/icons/chrome-icon.png
+Exec=chromium %U file:///home/archy/.startpages/chromium/index.html
+NoDisplay=false
+Categories=GTK;Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=false
+Terminal=false
+X-XFCE-Source=file:///home/archy/desk/chromium.desktop
+Path=

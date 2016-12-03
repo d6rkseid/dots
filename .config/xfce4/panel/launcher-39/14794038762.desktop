@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Atom
+GenericName=Text Editor
+Comment=A hackable text editor for the 21st Century
+Icon=/home/archy/.local/icons/atomg.png
+Exec=electron --app=/usr/lib/atom %F
+NoDisplay=false
+Categories=Development;GNOME;GTK;TextEditor;Utility;
+MimeType=text/plain;
+StartupNotify=true
+Terminal=false
+X-XFCE-Source=file:///home/archy/desk/atom.desktop

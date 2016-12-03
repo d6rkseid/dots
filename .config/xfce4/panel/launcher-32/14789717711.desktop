@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Whatsie
+Comment=A simple &amp; beautiful desktop client for WhatsApp Web.
+GenericName=Internet Messenger
+Exec=/opt/whatsie/whatsie %U
+Icon=whatsie
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=whatsie
+Keywords=WhatsApp;Whats;
+Categories=Network;InstantMessaging;
+X-GNOME-UsesNotifications=true
+X-XFCE-Source=file:///home/archy/desk/whatsie.desktop
